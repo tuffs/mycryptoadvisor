@@ -19,6 +19,5 @@ export async function POST(request: Request) {
 
   // Generate a JSON Web Token
   const token = generateToken({ userId: user.id, email: user.email });
-
   return NextResponse.json({ message: 'Login successful', token });
 }
