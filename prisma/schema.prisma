@@ -8,8 +8,26 @@ datasource db {
 }
 
 model User {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique
-  passwordHash String
-  createdAt    DateTime @default(now())
+  id             Int             @id @default(autoincrement())
+  email          String          @unique
+  passwordHash   String
+  trackedCryptos TrackedCrypto[]
+  createdAt      DateTime        @default(now())
+}
+
+model TrackedCrypto {
+  id     Int     @id @default(autoincrement())
+  symbol String
+  userId Int
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trades Trade[] // Relation to trades
+}
+
+model Trade {
+  id              Int           @id @default(autoincrement())
+  type            String // Buy or Sell
+  quantity        Float
+  trackedCryptoId Int
+  trackedCrypto   TrackedCrypto @relation(fields: [trackedCryptoId], references: [id], onDelete: Cascade)
+  createdAt       DateTime      @default(now())
 }
