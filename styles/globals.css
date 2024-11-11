@@ -7,8 +7,32 @@
   --foreground: #171717;
 }
 
+.box {
+  @apply border border-gray-200 shadow-sm rounded-md p-4 mb-4;
+}
+
+.heading {
+  @apply text-xl font-semibold;
+}
+
+.loading {
+  @apply text-blue-500;
+}
+
+.error {
+  @apply text-red-500;
+}
+
+.price {
+  @apply text-green-600 text-2xl font-bold;
+}
+
+.button {
+  @apply m-2 px-2 py-4 bg-blue-300 text-lg text-blue-800 rounded-md outline-1 outline-gray-300;
+}
+
 input {
-  @apply text-gray-800;
+  @apply text-gray-800 p-3 my-2 mx-4 text-lg outline-1 outline-gray-300 rounded-md;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -24,8 +24,8 @@ export default function TradeSimulator({ symbol }: TradeSimulatorProps) {
 
   return (
     <div>
-      <h3>{symbol} Trade Simulator</h3>
-      <p>Current Holdings: {holdings} {symbol}</p>
+      <h3 className="heading">{symbol} Trade Simulator</h3>
+      <p className="text-gray-300">Current Holdings: {holdings} {symbol}</p>
       <input
         type="number"
         value={quantity}
@@ -34,9 +34,11 @@ export default function TradeSimulator({ symbol }: TradeSimulatorProps) {
       />
       <button
         onClick={() => handleTrade('buy')}
+        className="button"
       >Buy</button>
       <button
         onClick={() => handleTrade('sell')}
+        className="button"
       >Sell</button>
     </div>
   );
