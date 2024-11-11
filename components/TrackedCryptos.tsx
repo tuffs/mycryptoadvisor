@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import CryptoPriceDisplay from '@/components/CryptoPriceDisplay';
+import TradeSimulator from '@/components/TradeSimulator';
 
 interface TrackedCrypto {
   symbol: string;
@@ -44,6 +45,7 @@ export default function TrackedCryptos() {
         {trackedCryptos.map((crypto) => (
           <li key={crypto.symbol}>
             <CryptoPriceDisplay symbol={crypto.symbol} />
+            <TradeSimulator symbol={crypto.symbol} />
             <button
               onClick={() => removeCrypto(crypto.symbol)}
             >Remove</button>

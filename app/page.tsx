@@ -1,4 +1,4 @@
-import CryptoPriceDisplay from '@/components/CryptoPriceDisplay';
+import TrackedCryptos from '@/components/TrackedCryptos';
 
 export default function HomePage() {
   return (
@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1>Welcome to MyCryptoAdvisor</h1>
       <p>Your Cryptocurrency aggregation tool is under construction.</p>
       <br /><br />
-      <CryptoPriceDisplay symbol="ETH" />
+      <TrackedCryptos />
     </main>
   );
 }
