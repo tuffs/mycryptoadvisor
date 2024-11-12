@@ -40,22 +40,24 @@ export default function TrackedCryptos() {
 
   return (
     <div>
-      <h2 className="heading">Tracked Cryptocurrencies</h2>
 
-      <div>
-        <h3 className="text-xl font-semibold text-white">Add New Crypto</h3>
-        <input
-          type="text"
-          value={newSymbol}
-          onChange={(e) => setNewSymbol(e.target.value)}
-          placeholder="Enter symbol (e.g. BTC, ETH, DOGE)"
-        />
-        <button
-          onClick={addCrypto}
-          className="button"
-        >Add</button>
+      <div className="my-12 md:my-16">
+        <div className="w-auto text-center">
+          <h2 className="text-sm font-thin tracking-tighter text-white ml-[.1rem]">TRACK YOUR CRYPTOS</h2>
+          <input
+            type="text"
+            value={newSymbol}
+            onChange={(e) => setNewSymbol(e.target.value)}
+            placeholder="Enter Symbol"
+          />
+          <button
+            onClick={addCrypto}
+            className="button"
+          >Add</button>
+        </div>
       </div>
 
+      <h2 className="heading">Tracked Cryptocurrencies</h2>
       <ul>
         {trackedCryptos.map((crypto) => (
           <li key={crypto.symbol}>

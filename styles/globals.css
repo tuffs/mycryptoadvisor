@@ -8,7 +8,7 @@
 }
 
 .site_heading {
-  @apply text-5xl font-bold text-white;
+  @apply text-3xl font-bold text-white;
 }
 
 .box {
@@ -32,11 +32,21 @@
 }
 
 .button {
-  @apply m-2 px-2 py-4 bg-blue-300 text-lg text-blue-800 rounded-md outline-1 outline-gray-300;
+  @apply px-3 py-2 bg-gray-800 text-sm mr-1 text-gray-300 rounded-md hover:bg-gray-900;
 }
 
 input {
-  @apply text-gray-800 p-3 my-2 mx-4 text-lg outline-1 outline-gray-300 rounded-md ml-[.1rem];
+  @apply text-gray-800 px-3 py-1 mr-1 pr-1 text-lg outline-1 outline-gray-300 rounded-md ml-[.1rem];
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 0.01rem solid #2a2a2a;
+}
+
+input:focus,
+input:active {
+  outline-width: 0.1rem;
+  outline-color: #2a2a2a;
+  border-color: #2a2a2a;
+  border-width: 0.01rem;
 }
 
 @media (prefers-color-scheme: dark) {
