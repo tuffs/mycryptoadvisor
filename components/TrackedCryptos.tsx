@@ -40,8 +40,10 @@ export default function TrackedCryptos() {
 
   return (
     <div>
-      <h2 className="heading ml-4">Tracked Cryptocurrencies</h2>
+      <h2 className="heading">Tracked Cryptocurrencies</h2>
+
       <div>
+        <h3 className="text-xl font-semibold text-white">Add New Crypto</h3>
         <input
           type="text"
           value={newSymbol}
