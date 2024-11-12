@@ -26,7 +26,7 @@ export default function TrackedCryptos() {
   const addCrypto = async () => {
     if (!newSymbol) return;
 
-    // Call backend to add new crypto (assuming a route exists to handle)
+    // Ensure that the API call uses POST and includes the symbol in the body of the request
     await fetch('/api/user/tracked-cryptos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
