@@ -10,7 +10,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <div className="mx:3 md:mx-12">
+          {children}
+        </div>
       </body>
     </html>
   );

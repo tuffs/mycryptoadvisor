@@ -23,14 +23,14 @@ export default function TradeSimulator({ symbol }: TradeSimulatorProps) {
   }
 
   return (
-    <div>
-      <h3 className="heading">{symbol} Trade Simulator</h3>
-      <p className="text-gray-300">Current Holdings: {holdings} {symbol}</p>
+    <div className="mb-6">
+      <h3 className="text-gray-300 text-lg"><span className="underline">{symbol}</span> Held: {holdings}</h3>
       <input
         type="number"
         value={quantity}
         onChange={(e) => setQuantity(parseFloat(e.target.value))}
         placeholder="Enter Quantity"
+        className="m-[-.05rem] mr-1"
       />
       <button
         onClick={() => handleTrade('buy')}

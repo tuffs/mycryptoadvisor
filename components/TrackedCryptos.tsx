@@ -40,7 +40,6 @@ export default function TrackedCryptos() {
 
   return (
     <div>
-
       <div className="my-12 md:my-16">
         <div className="w-auto text-center">
           <h2 className="text-sm font-thin tracking-tighter text-white ml-[.1rem]">TRACK YOUR CRYPTOS</h2>
@@ -53,14 +52,13 @@ export default function TrackedCryptos() {
           <button
             onClick={addCrypto}
             className="button"
-          >Add</button>
+          >TRACK</button>
         </div>
       </div>
 
-      <h2 className="heading">Tracked Cryptocurrencies</h2>
-      <ul>
+      <ul className="flex space-x-2">
         {trackedCryptos.map((crypto) => (
-          <li key={crypto.symbol}>
+          <li key={crypto.symbol} className="box w-[385px]">
             <CryptoPriceDisplay symbol={crypto.symbol} />
             <TradeSimulator symbol={crypto.symbol} />
           </li>

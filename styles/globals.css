@@ -16,7 +16,7 @@
 }
 
 .heading {
-  @apply text-3xl font-semibold mb-5;
+  @apply text-3xl font-semibold;
 }
 
 .loading {
@@ -32,11 +32,11 @@
 }
 
 .button {
-  @apply px-3 py-2 bg-gray-800 text-sm mr-1 text-gray-300 rounded-md hover:bg-gray-900;
+  @apply px-3 py-2 pb-[.45rem] bg-gray-800 text-sm mr-1 text-gray-300 rounded-md hover:bg-gray-900;
 }
 
 input {
-  @apply text-gray-800 px-3 py-1 mr-1 pr-1 text-lg outline-1 outline-gray-300 rounded-md ml-[.1rem];
+  @apply text-gray-300 px-3 py-1 mr-1 pr-1 text-lg outline-1 outline-gray-300 rounded-md ml-[.1rem];
   background-color: rgba(0, 0, 0, 0.65);
   border: 0.01rem solid #2a2a2a;
 }
