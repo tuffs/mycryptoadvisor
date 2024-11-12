@@ -38,11 +38,13 @@ export default function CryptoPriceDisplay({ symbol }: CryptoPriceDisplayProps) 
 
   return (
     <div className="">
-      <h2 className="heading">{symbol} Price:&nbsp;
+      <h2 className="heading">{symbol} PRICE
+      </h2 >
+      <h3 className="mb-6">
         {loading && <span className="loading">Loading...</span>}
         {error && <span className="error">{error}</span>}
         {price && !error && <span className="price">${price}</span>}
-      </h2 >
+      </h3>
     </div >
   );
 }

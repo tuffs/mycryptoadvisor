@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import CryptoPriceDisplay from '@/components/CryptoPriceDisplay';
 import TradeSimulator from '@/components/TradeSimulator';
+import RemoveTrackedCrypto from '@/components/RemoveTrackedCrypto';
 
 interface TrackedCrypto {
   id: number;
@@ -38,6 +39,10 @@ export default function TrackedCryptos() {
     await fetchTrackedCryptos();
   }
 
+  const removeCrypto = (symbol: string) => {
+    setTrackedCryptos(trackedCryptos.filter((crypto) => crypto.symbol !== symbol));
+  }
+
   return (
     <div>
       <div className="my-12 md:my-16">
@@ -61,6 +66,7 @@ export default function TrackedCryptos() {
           <li key={crypto.symbol} className="box w-[385px]">
             <CryptoPriceDisplay symbol={crypto.symbol} />
             <TradeSimulator symbol={crypto.symbol} />
+            <RemoveTrackedCrypto symbol={crypto.symbol} onRemove={removeCrypto} />
           </li>
         ))}
       </ul>
