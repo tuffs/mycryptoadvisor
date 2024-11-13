@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import CryptoPriceDisplay from '@/components/CryptoPriceDisplay';
 import TradeSimulator from '@/components/TradeSimulator';
 import RemoveTrackedCrypto from '@/components/RemoveTrackedCrypto';
+import Skeleton from '@/components/Skeleton';
 
 interface TrackedCrypto {
   id: number;
@@ -13,11 +14,13 @@ interface TrackedCrypto {
 export default function TrackedCryptos() {
   const [trackedCryptos, setTrackedCryptos] = useState<TrackedCrypto[]>([]);
   const [newSymbol, setNewSymbol] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
 
   async function fetchTrackedCryptos() {
     const response = await fetch('/api/user/tracked-cryptos');
     const data = await response.json() as TrackedCrypto[];
     setTrackedCryptos(data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -62,13 +65,16 @@ export default function TrackedCryptos() {
       </div>
 
       <ul className="flex space-x-2">
-        {trackedCryptos.map((crypto) => (
-          <li key={crypto.symbol} className="box w-[385px]">
-            <CryptoPriceDisplay symbol={crypto.symbol} />
-            <TradeSimulator symbol={crypto.symbol} />
-            <RemoveTrackedCrypto symbol={crypto.symbol} onRemove={removeCrypto} />
-          </li>
-        ))}
+        {loading ? (
+          <Skeleton className="h-[232px] w-[385px] rounded-md" />
+        ) : (
+          trackedCryptos.map((crypto) => (
+            <li key={crypto.symbol} className="box w-[385px]">
+              <CryptoPriceDisplay symbol={crypto.symbol} />
+              <TradeSimulator symbol={crypto.symbol} />
+              <RemoveTrackedCrypto symbol={crypto.symbol} onRemove={removeCrypto} />
+            </li>
+          )))}
       </ul>
     </div>
   );
