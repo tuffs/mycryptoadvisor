@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Skeleton from '@/components/Skeleton';
 
 interface CryptoPriceDisplayProps {
   symbol: string;
@@ -37,14 +38,16 @@ export default function CryptoPriceDisplay({ symbol }: CryptoPriceDisplayProps) 
   }, [symbol]);
 
   return (
-    <div className="">
-      <h2 className="heading">{symbol} PRICE
-      </h2 >
-      <h3 className="mb-6">
-        {loading && <span className="loading">Loading...</span>}
-        {error && <span className="error">{error}</span>}
-        {price && !error && <span className="price">${price}</span>}
-      </h3>
-    </div >
+    <div>
+      <h2 className="heading">{symbol} PRICE</h2>
+      {loading ? (
+        <Skeleton className="mb-6 h-6 w-full rounded-md" />
+      ) : (
+        <h3 className="mb-6">
+          {error && <span className="error">{error}</span>}
+          {price && !error && <span className="price">${price}</span>}
+        </h3>
+      )}
+    </div>
   );
 }
